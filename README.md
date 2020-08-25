@@ -1,5 +1,7 @@
 # triad-colors-js
 
+[![Build Status](https://travis-ci.org/shinshin86/triad-colors-js.svg?branch=master)](https://travis-ci.org/shinshin86/triad-colors-js)
+
 It's a npm library of get triad colors.
 
 ## Install
