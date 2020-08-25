@@ -27,6 +27,10 @@ const isValidColorCode = (colorCode: string): boolean => {
   return regColorCode3Len.test(colorCode) || regColorCode6Len.test(colorCode);
 };
 
+const isValidCodeDigits = (code: string): boolean => {
+  return code.length === 6;
+};
+
 const getColorCodeList = (colorCode: string): ColorCodeList => {
   const myColor: any = new compColors(colorCode);
   const colorCodeList: ColorCodeList = [];
@@ -45,9 +49,11 @@ export const getColors = (colorCode: string): ColorCodeList => {
 };
 
 export const getRandomColors = (): ColorCodeList => {
-  const randomColorCode: string = Math.floor(Math.random() * 16777215).toString(
-    16
-  );
+  // HACK: Sometimes the output is a five-digit code
+  let randomColorCode: string;
+  do {
+    randomColorCode = Math.floor(Math.random() * 16777215).toString(16);
+  } while (!isValidCodeDigits(randomColorCode));
 
   return getColorCodeList(`#${randomColorCode}`);
 };
