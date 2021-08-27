@@ -1,0 +1,6 @@
+examples/
+.prettierignore
+.travis.yml
+index.test.js
+index.ts
+tsconfig.json
